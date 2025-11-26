@@ -1,0 +1,17 @@
+#ສ້າງclass
+class Employee:
+    #ສ້າງmethod __init__
+    def detail(self):  #ສ້າງmethod detail  //def ແມ່ນການປະກາດmethod
+            self.name = "Jotaro "  #ສ້າງຕົວແປ name ແລະກຳນົດຄ່າເປັນ "John Doe"
+            self.sarary = 50000  #ສ້າງຕົວແປ salary ແລະກຳນົດຄ່າເປັນ 50000
+            print("Name = {} ".format (self.name))  #ພິມຄ່າຂອງຕົວແປ name //f-string
+            print("Salary = {} ".format (self.sarary))  #ພິມຄ່າຂອງຕົວແປ salary //f-string
+                    
+#ສ້າງອອບເຈັດຈາກclass Employee
+obj1 = Employee()
+obj1.detail()  #ເອີ້ນໃຊ້ງານ method detail ຈາກອອບເຈັດ emp1
+
+-----------------------------------------------------
+#ສະແດງຜົນລັບ
+#Name = Jotaro
+#Salary = 50000

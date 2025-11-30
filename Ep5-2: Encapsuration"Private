@@ -1,0 +1,20 @@
+#Constructor Method ໃນ Python
+class Employee:
+#protected attribute
+    def __init__(self,name,sarary,department):  #ສ້າງmethod detail  //def ແມ່ນການປະກາດmethod
+        self._name = name  #ກຳນົດ attribute name
+        self.__sarary = sarary #ກຳນົດ attribute sarary
+        self.__department = department #ກຳນົດ attribute department
+        #protected method
+    def showData(self):  #ສ້າງmethod showData    
+        print("Name = {}".format(self._name))  #ສະແດງ attribute name
+        print("Salary = {}".format(self.__sarary))  #ສະແດງ attribute sarary 
+        print("Department = {}".format (self.__department))  #ສະແດງ attribute department
+    #def __del__(self):
+            #print("Object is being deleted")  #ສ້າງmethod __del__ ເພື່ອລະບາຍອອບເຈັດ ໃສ່ກະໄດ້ ບໍ່ໃສ່ກະໄດ້
+#ສ້າງອອບເຈັດຈາກclass Employee
+obj1 = Employee('Shubin',5000000,"Programer")
+obj1._name = "Anucha"  #ແກ້ໄຂ attribute name ຂອງອອບເຈັດ obj1 ໃນຮະດັບprotected
+obj1.__sarary = 6000000  #ບໍ່ສາມາດແກ້ໄຂ attribute sarary ຂອງອອບເຈັດ obj1 ໃນຮະດັບprivate
+obj1.__department = "Designer"  #ບໍ່ສາມາດແກ້ໄຂ attribute department ຂອງອອບເຈັດ obj1 ໃນຮະດັບprivate
+obj1.showData()  #ເອີ້ນmethod showData ຈາກອອບເຈັດ obj1

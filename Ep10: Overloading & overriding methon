@@ -1,0 +1,63 @@
+#Constructor Method ໃນ Python
+class Employee:
+    #class variables
+    _minSarary = 15000  #protected variable
+    _maxSarary = 2000000  #private variable
+    _company = "ABC Company"  #public variable
+    def __init__(self,name,sarary,department):  #ສ້າງmethod detail  //def ແມ່ນການປະກາດmethod
+        self.__name = name  #ກຳນົດ attribute name
+        self.__sarary = sarary #ກຳນົດ attribute sarary
+        self.__department = department #ກຳນົດ attribute department
+        #protected method
+    def showData(self):#ສ້າງmethod showData
+        print("Name = {}".format(self.__name))#ສະແດງ attribute name
+        print("Salary = {}".format(self.__sarary))#ສະແດງ attribute sarary
+        print("Department = {}".format (self.__department))#ສະແດງ attribute department
+    #income peryear example
+    def _getIncome(self,bonus=0,overtime=0):
+        return (self.__sarary * 12) + bonus + overtime
+    #str method
+    def __str__(self): #ການຳໃຊ້ເພື່ອສະແດງຂໍ້ມູນຂອງ object ໃນຮູບແບບ string ໂດຍທີ່ບໍ່ຈຳເປັນຕ້ອງໃຊ້ showData ເພື່ອສະແດງ
+        return "Employee Name: {}, Salary: {}, Department: {}, Income1year: {}".format(self.__name,self.__sarary,self.__department,self._getIncome())
+#-----------------------------------------------------------------------
+class Accounting(Employee):
+    __departmentName = "Accounting"
+    def __init__(self,name,sarary,age):
+        super().__init__(name,sarary,self.__departmentName)
+        self.__age = age
+    def showData(self):
+        super().showData()
+        print("Age = {} years"+str (self.__age))
+    def __str__(self): #ການຳໃຊ້ເພື່ອສະແດງຂໍ້ມູນຂອງ object ໃນຮູບແບບ string ໂດຍທີ່ບໍ່ຈຳເປັນຕ້ອງໃຊ້ showData ເພື່ອສະແດງ
+        return (super().__str__()+", Age: {} years".format(self.__age))
+
+#-----------------------------------------------------------------------
+class IT(Employee):
+    __departmentName = "IT"
+    def __init__(self,name,sarary,exp,skill):
+        super().__init__(name,sarary,self.__departmentName)
+        self.__exp = exp
+        self.__skill = skill
+    def showData(self):
+        super().showData()
+        print("Experience = {} years"+str(self.__exp))
+        print("Skill = {}"+self.__skill)
+    def __str__(self): #ການຳໃຊ້ເພື່ອສະແດງຂໍ້ມູນຂອງ object ໃນຮູບແບບ string ໂດຍທີ່ບໍ່ຈຳເປັນຕ້ອງໃຊ້ showData ເພື່ອສະແດງ
+        return (super().__str__()+", Experience: {} years, Skill: {}".format(self.__exp,self.__skill))
+#-----------------------------------------------------------------------
+class Marketing(Employee):
+    __departmentName = "Marketing"
+    def __init__(self,name,sarary,area):
+        super().__init__(name,sarary,self.__departmentName)
+        self.__area = area
+    def showData(self):
+        print("Marketing area ="+self.__area)
+    def __str__(self): #ການຳໃຊ້ເພື່ອສະແດງຂໍ້ມູນຂອງ object ໃນຮູບແບບ string ໂດຍທີ່ບໍ່ຈຳເປັນຕ້ອງໃຊ້ showData ເພື່ອສະແດງ
+        return (super().__str__()+", Marketing area:"+str(self.__area))
+#-----------------------------------------------------------------------
+account = Accounting("A",20000,30)
+print("Income + bonus + overtime = "+str(account._getIncome(8000,2000)))#ການສະແດງຜົນແບບ string + bounus + overtime
+coding = IT("B",25000,5,"Python")
+print(IT.__str__(coding))#ການສະແດງຜົນແບບ string
+sell = Marketing("C",30000,"North")
+sell.showData()#ການສະແດງຜົນແບບ method showData
